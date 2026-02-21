@@ -1,1 +1,260 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GOOD BOYS EFOOTBALL LEAGUE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------------------------------------------------
+   BASE DARK MODE
+--------------------------------------------------- */
+:root {
+    --bg: #111;
+    --card: #1a1a1a;
+    --text: #fff;
+    --accent: #4da3ff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    transition: 0.4s;
+}
+
+h1,h2,h3 { text-align: center; }
+
+/* Center container */
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* ---------------------------------------------------
+   THEME SWITCHER
+--------------------------------------------------- */
+.theme-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.theme-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background: var(--card);
+    border-radius: 10px;
+    color: var(--text);
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.theme-buttons button:hover {
+    transform: scale(1.1);
+}
+
+/* ---------------------------------------------------
+   TABLE
+--------------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* Card Style */
+th {
+    background: var(--accent);
+    color: #000;
+}
+
+td {
+    background: var(--card);
+}
+
+/* ---------------------------------------------------
+   FIXTURE CARDS
+--------------------------------------------------- */
+.fixture-box {
+    background: var(--card);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    border: 1px solid #333;
+    animation: fadeIn 0.7s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------------------
+   THEMES (1,2,3,4)
+--------------------------------------------------- */
+
+/* THEME 1 – Neon Cyberpunk */
+.theme1 {
+    --bg: #050010;
+    --card: #0d0018;
+    --text: #e0e0ff;
+    --accent: #9f00ff;
+}
+.theme1 .fixture-box {
+    box-shadow: 0 0 15px #9f00ff;
+}
+
+/* THEME 2 – Premium Minimal Dark (Apple-like) */
+.theme2 {
+    --bg: #0d0d0d;
+    --card: #1a1a1a;
+    --text: #f2f2f2;
+    --accent: #bfbfbf;
+}
+.theme2 .fixture-box {
+    border: 1px solid #333;
+}
+
+/* THEME 3 – Gaming Tournament (FIFA/Valorant Style) */
+.theme3 {
+    --bg: #0a0f18;
+    --card: #101823;
+    --text: #eaf1ff;
+    --accent: #ff4655;   /* Valorant red */
+}
+.theme3 .fixture-box {
+    border-left: 4px solid #ff4655;
+}
+
+/* THEME 4 – Metallic Chrome (PS5) */
+.theme4 {
+    --bg: #0c0c12;
+    --card: #1a1a24;
+    --text: #dfe9ff;
+    --accent: #00a2ff;
+}
+.theme4 .fixture-box {
+    background: linear-gradient(135deg, #1a1a24, #23232e);
+}
+
+/* Responsive */
+@media(max-width:600px){
+    th,td { font-size: 13px; }
+}
+</style>
+
+</head>
+<body class="theme1">
+
+<div class="container">
+
+<h1>GOOD BOYS EFOOTBALL LEAGUE</h1>
+
+<!-- THEME SWITCH BUTTONS -->
+<div class="theme-buttons">
+    <button onclick="setTheme(1)">Neon</button>
+    <button onclick="setTheme(2)">Minimal</button>
+    <button onclick="setTheme(3)">Gaming</button>
+    <button onclick="setTheme(4)">Metallic</button>
+</div>
+
+<script>
+function setTheme(n) {
+    document.body.className = "theme" + n;
+}
+</script>
+
+<!-- ================= LEAGUE TABLE ================= -->
+<h2>League Table</h2>
+<table>
+<tr>
+    <th>#</th>
+    <th>Team</th>
+    <th>P</th>
+    <th>W</th>
+    <th>D</th>
+    <th>L</th>
+    <th>GF</th>
+    <th>GA</th>
+    <th>GD</th>
+    <th>Pts</th>
+</tr>
+
+<tr><td>1</td><td>Ajju</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>2</td><td>Shanu</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>3</td><td>Sultha</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>4</td><td>Sinan</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>5</td><td>Razi</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>6</td><td>Nihal</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+</table>
+
+<!-- ================= FIXTURES ================= -->
+<h2>League Fixtures</h2>
+
+<div class="fixture-box">
+<h3>Matchday 1</h3>
+Ajju vs Shanu<br>
+Sultha vs Sinan<br>
+Razi vs Nihal
+</div>
+
+<div class="fixture-box">
+<h3>Matchday 2</h3>
+Ajju vs Sultha<br>
+Shanu vs Razi<br>
+Sinan vs Nihal
+</div>
+
+<div class="fixture-box">
+<h3>Matchday 3</h3>
+Ajju vs Sinan<br>
+Shanu vs Nihal<br>
+Sultha vs Razi
+</div>
+
+<div class="fixture-box">
+<h3>Matchday 4</h3>
+Ajju vs Razi<br>
+Shanu vs Sultha<br>
+Sinan vs Nihal
+</div>
+
+<div class="fixture-box">
+<h3>Matchday 5</h3>
+Ajju vs Nihal<br>
+Shanu vs Sinan<br>
+Sultha vs Razi
+</div>
+
+<!-- ================= SEMI FINAL ================= -->
+<h2>Semi Finals</h2>
+<div class="fixture-box">
+1st Place vs 4th Place<br>
+2nd Place vs 3rd Place
+</div>
+
+<!-- ================= FINAL ================= -->
+<h2>Final</h2>
+<div class="fixture-box">
+Winner SF1 vs Winner SF2
+</div>
+
+</div>
+
+</body>
+</html>
