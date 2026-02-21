@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* BASE COLORS (Football-themed) */
+/* THEME COLORS (Black + White + Neon Blue) */
 :root {
-    --bg: #0d0f15;          /* Dark stadium night */
-    --card: #11131c;        /* Deep dark panels */
-    --text: #e8f0ff;        /* Soft white */
-    --accent: #00ff85;      /* Football neon green */
-    --accent2: #0077ff;     /* Scoreboard blue */
-    --gold: #ffd700;        /* Premium gold */
+    --bg: #0b0b0d;
+    --card: #111113;
+    --text: #ffffff;
+    --accent: #3a8dff;     /* soft blue neon */
+    --glow: #3a8dff55;
 }
 
+/* BODY */
 body {
     margin: 0;
     padding: 0;
@@ -24,12 +24,13 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* HEADINGS */
 h1 {
     text-align: center;
     margin-top: 20px;
-    color: var(--gold);
     font-size: 2rem;
-    text-shadow: 0 0 10px #ffd700aa;
+    color: var(--accent);
+    text-shadow: 0 0 18px var(--glow);
 }
 
 h2 {
@@ -41,80 +42,91 @@ h2 {
 h3 {
     text-align: center;
     margin-top: 25px;
-    color: var(--accent2);
+    color: var(--text);
+    opacity: 0.8;
 }
 
+/* MAIN CONTAINER */
 .container {
     width: 95%;
     max-width: 900px;
     margin: auto;
 }
 
-/* THEME SWITCH BUTTONS */
-.theme-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-.theme-buttons button {
-    padding: 10px 18px;
-    border: 0;
-    border-radius: 12px;
-    background: var(--card);
-    color: var(--text);
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.theme-buttons button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 10px var(--accent);
-}
-
 /* LEAGUE TABLE */
 table {
     width: 100%;
     border-collapse: collapse;
-    background: var(--card);
-    border-radius: 12px;
+    margin-top: 20px;
+    border-radius: 15px;
     overflow: hidden;
 }
+
 th {
-    background: var(--accent2);
-    padding: 12px;
-    color: #fff;
+    background: var(--accent);
+    color: #000;
+    padding: 10px;
 }
+
 td {
     padding: 10px;
+    background: var(--card);
     text-align: center;
 }
 
-/* FIXTURE BOXES — INDIVIDUAL MATCH */
+/* FIXTURE MATCH CARD (Individual) */
 .fixture-box {
-    background: linear-gradient(145deg, #10131b, #08090e);
-    padding: 18px;
+    background: var(--card);
     margin: 12px 0;
+    padding: 15px;
     border-radius: 15px;
-    border: 1px solid #1f2230;
-    box-shadow: 0 0 12px #00ff8555;
-    animation: pop 0.6s ease;
-    font-size: 17px;
+    border: 1px solid #1c1c22;
+    box-shadow: 0 0 15px var(--glow);
+    animation: fade 0.6s ease;
 }
 
-@keyframes pop {
-    from { opacity: 0; transform: translateY(15px); }
+@keyframes fade {
+    from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* RESPONSIVE */
-@media(max-width:600px) {
-    th, td { font-size: 13px; }
-    .fixture-box { font-size: 15px; }
+/* MATCH LAYOUT (Team | Score | Team) */
+.match-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+}
+
+/* TEAM NAME */
+.team {
+    width: 40%;
+    font-weight: bold;
+}
+
+/* SCORE BOX */
+.score {
+    width: 60px;
+    height: 35px;
+    border-radius: 10px;
+    background: #000;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--glow);
+}
+
+@media(max-width:600px){
+    .match-row { font-size: 15px; }
+    .score { width: 50px; height: 30px; font-size: 16px; }
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="container">
@@ -150,100 +162,114 @@ td {
 <!-- ================= FIXTURES ================= -->
 <h2>League Fixtures</h2>
 
+<!-- MATCHDAY 1 -->
 <h3>Matchday 1</h3>
-<div class="fixture-box">Ajju vs Shanu</div>
-<div class="fixture-box">Sultha vs Sinan</div>
-<div class="fixture-box">Razi vs Nihal</div>
 
+<div class="fixture-box">
+    <div class="match-row">
+        <div class="team">Ajju</div>
+        <div class="score">0 - 0</div>
+        <div class="team">Shanu</div>
+    </div>
+</div>
+
+<div class="fixture-box">
+    <div class="match-row">
+        <div class="team">Sultha</div>
+        <div class="score">0 - 0</div>
+        <div class="team">Sinan</div>
+    </div>
+</div>
+
+<div class="fixture-box">
+    <div class="match-row">
+        <div class="team">Razi</div>
+        <div class="score">0 - 0</div>
+        <div class="team">Nihal</div>
+    </div>
+</div>
+
+<!-- MATCHDAY 2 -->
 <h3>Matchday 2</h3>
-<div class="fixture-box">Ajju vs Sultha</div>
-<div class="fixture-box">Shanu vs Razi</div>
-<div class="fixture-box">Sinan vs Nihal</div>
 
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Ajju</div><div class="score">0 - 0</div><div class="team">Sultha</div>
+</div></div>
+
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Shanu</div><div class="score">0 - 0</div><div class="team">Razi</div>
+</div></div>
+
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Sinan</div><div class="score">0 - 0</div><div class="team">Nihal</div>
+</div></div>
+
+<!-- MATCHDAY 3 -->
 <h3>Matchday 3</h3>
-<div class="fixture-box">Ajju vs Sinan</div>
-<div class="fixture-box">Shanu vs Nihal</div>
-<div class="fixture-box">Sultha vs Razi</div>
 
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Ajju</div><div class="score">0 - 0</div><div class="team">Sinan</div>
+</div></div>
+
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Shanu</div><div class="score">0 - 0</div><div class="team">Nihal</div>
+</div></div>
+
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Sultha</div><div class="score">0 - 0</div><div class="team">Razi</div>
+</div></div>
+
+<!-- MATCHDAY 4 -->
 <h3>Matchday 4</h3>
-<div class="fixture-box">Ajju vs Razi</div>
-<div class="fixture-box">Shanu vs Sultha</div>
-<div class="fixture-box">Sinan vs Nihal</div>
 
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Ajju</div><div class="score">0 - 0</div><div class="team">Razi</div>
+</div></div>
+
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Shanu</div><div class="score">0 - 0</div><div class="team">Sultha</div>
+</div></div>
+
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Sinan</div><div class="score">0 - 0</div><div class="team">Nihal</div>
+</div></div>
+
+<!-- MATCHDAY 5 -->
 <h3>Matchday 5</h3>
-<div class="fixture-box">Ajju vs Nihal</div>
-<div class="fixture-box">Shanu vs Sinan</div>
-<div class="fixture-box">Sultha vs Razi</div>
 
-<!-- ================= SEMI FINALS ================= -->
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Ajju</div><div class="score">0 - 0</div><div class="team">Nihal</div>
+</div></div>
+
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Shanu</div><div class="score">0 - 0</div><div class="team">Sinan</div>
+</div></div>
+
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Sultha</div><div class="score">0 - 0</div><div class="team">Razi</div>
+</div></div>
+
+<!-- SEMI FINALS -->
 <h2>Semi Finals</h2>
-<div class="fixture-box">1st Place vs 4th Place</div>
-<div class="fixture-box">2nd Place vs 3rd Place</div>
+<div class="fixture-box"><div class="match-row">
+    <div class="team">1st Place</div>
+    <div class="score">–</div>
+    <div class="team">4th Place</div>
+</div></div>
 
-<!-- ================= FINAL ================= -->
+<div class="fixture-box"><div class="match-row">
+    <div class="team">2nd Place</div>
+    <div class="score">–</div>
+    <div class="team">3rd Place</div>
+</div></div>
+
+<!-- FINAL -->
 <h2>Final</h2>
-<div class="fixture-box">Winner SF1 vs Winner SF2</div>
-
-</div>
-
-</body>
-</html><tr><td>3</td><td>Sultha</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>4</td><td>Sinan</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>5</td><td>Razi</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>6</td><td>Nihal</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-
-</table>
-
-<!-- ================= FIXTURES ================= -->
-<h2>League Fixtures</h2>
-
-<div class="fixture-box">
-<h3>Matchday 1</h3>
-Ajju vs Shanu<br>
-Sultha vs Sinan<br>
-Razi vs Nihal
-</div>
-
-<div class="fixture-box">
-<h3>Matchday 2</h3>
-Ajju vs Sultha<br>
-Shanu vs Razi<br>
-Sinan vs Nihal
-</div>
-
-<div class="fixture-box">
-<h3>Matchday 3</h3>
-Ajju vs Sinan<br>
-Shanu vs Nihal<br>
-Sultha vs Razi
-</div>
-
-<div class="fixture-box">
-<h3>Matchday 4</h3>
-Ajju vs Razi<br>
-Shanu vs Sultha<br>
-Sinan vs Nihal
-</div>
-
-<div class="fixture-box">
-<h3>Matchday 5</h3>
-Ajju vs Nihal<br>
-Shanu vs Sinan<br>
-Sultha vs Razi
-</div>
-
-<!-- ================= SEMI FINAL ================= -->
-<h2>Semi Finals</h2>
-<div class="fixture-box">
-1st Place vs 4th Place<br>
-2nd Place vs 3rd Place
-</div>
-
-<!-- ================= FINAL ================= -->
-<h2>Final</h2>
-<div class="fixture-box">
-Winner SF1 vs Winner SF2
-</div>
+<div class="fixture-box"><div class="match-row">
+    <div class="team">Winner SF1</div>
+    <div class="score">–</div>
+    <div class="team">Winner SF2</div>
+</div></div>
 
 </div>
 
